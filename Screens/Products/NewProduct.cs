@@ -14,12 +14,12 @@ namespace PrinterDemo.Screens.Products
 {
     public partial class NewProduct : Form
     {
-        PrinterEntities db = new PrinterEntities();
+        PrinterEntities1 db = new PrinterEntities1();
         string imagePath ="";
         public NewProduct()
         {
             InitializeComponent();
-
+          //  comboBox1.SelectedValue =
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace PrinterDemo.Screens.Products
          // PrinterDemo.DB.Product x = new PrinterDemo.DB.Product();
         private void button_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtBarcode.Text == "" || txtPrice.Text == "")
+            if (txtName.Text == "" || txtBarcode.Text == "" || txtPrice.Text == "" || comboBox1.SelectedValue == null)
             {
                 MessageBox.Show("برجاء اكمال البيانات المطلوبه اولا");
             } else
@@ -65,7 +65,7 @@ namespace PrinterDemo.Screens.Products
                 product.Code = txtBarcode.Text;
                 product.Name = txtName.Text;
                 product.Notes = txtNotes.Text;
-                //
+                product.CategoryId = int.Parse( comboBox1.SelectedValue.ToString());
                 
                 
 
@@ -113,6 +113,8 @@ namespace PrinterDemo.Screens.Products
 
         private void Product_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'printerDataSet2.Category' table. You can move, or remove it, as needed.
+            this.categoryTableAdapter.Fill(this.printerDataSet2.Category);
 
         }
 
@@ -130,6 +132,16 @@ namespace PrinterDemo.Screens.Products
         {
             ProductList  p = new ProductList();
             p.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

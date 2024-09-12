@@ -14,7 +14,7 @@ namespace PrinterDemo.Screens.Products
 {
     public partial class ProductList : Form
     {
-        PrinterEntities db = new PrinterEntities();
+        PrinterEntities1 db = new PrinterEntities1();
         int id;
         PrinterDemo.DB.Product result;
         string imagePath = "";
@@ -22,9 +22,11 @@ namespace PrinterDemo.Screens.Products
         {
             InitializeComponent();
 
-            // viewing the data in grid view from  database ;
+            // viewing the data in grid view from  database;
             //  db.Products.ToList();
-            dataGridView1.DataSource = db.Products.ToList();
+            comboBox1.DataSource= db.Categories.ToList();
+            comboBox2.DataSource = db.Categories.ToList();
+            dataGridView1.DataSource = db.Products.OrderBy(x=>x.Price).ToList();
         }
 
 
@@ -57,10 +59,18 @@ namespace PrinterDemo.Screens.Products
 
         private void ProductList_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'printerDataSet6.Product' table. You can move, or remove it, as needed.
+            this.productTableAdapter4.Fill(this.printerDataSet6.Product);
+            // TODO: This line of code loads data into the 'printerDataSet5.Product' table. You can move, or remove it, as needed.
+            this.productTableAdapter3.Fill(this.printerDataSet5.Product);
+            // TODO: This line of code loads data into the 'printerDataSet4.Product' table. You can move, or remove it, as needed.
+            this.productTableAdapter2.Fill(this.printerDataSet4.Product);
+            // TODO: This line of code loads data into the 'printerDataSet3.Category' table. You can move, or remove it, as needed.
+            this.categoryTableAdapter.Fill(this.printerDataSet3.Category);
 
         }
 
-       
+
 
         private void txtBarcode1_TextChanged(object sender, EventArgs e)
         {
@@ -85,6 +95,7 @@ namespace PrinterDemo.Screens.Products
             txtPrice.Text =result.Price.ToString();
             txtQuantity.Text = result.Quantity.ToString();
             txtPicture.ImageLocation = result.Image;
+            comboBox1.SelectedValue= result.CategoryId;
             }
             catch { }
         }
@@ -97,7 +108,7 @@ namespace PrinterDemo.Screens.Products
             result.Code = txtFormBarcode.Text;
             result.Price = decimal.Parse(txtPrice.Text);
             result.Quantity = int.Parse(txtQuantity.Text);
-
+            result.CategoryId=int.Parse(comboBox1.SelectedValue.ToString());
             if (imagePath != "")
             {
 
@@ -157,6 +168,17 @@ namespace PrinterDemo.Screens.Products
         {
             NewProduct p = new NewProduct();
             p.Show();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           int catid= int.Parse(comboBox2.SelectedValue.ToString());
+           dataGridView1.DataSource = db.Products.Where(X => X.CategoryId == catid).ToList();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -49,3 +49,5 @@ D:\1-STUDYING\project\PrinterDemo\obj\Debug\PrinterD.7293E752.Up2Date
 D:\1-STUDYING\project\PrinterDemo\obj\Debug\PrinterDemo.MainForm.resources
 D:\1-STUDYING\project\PrinterDemo\obj\Debug\PrinterDemo.Screens.Products.ProductList.resources
 D:\1-STUDYING\project\PrinterDemo\obj\Debug\PrinterDemo.Screens.Products.NewProduct.resources
+D:\1-STUDYING\project\PrinterDemo\obj\Debug\PrinterDemo.Screens.SalesBill.SalesBillForm.resources
+D:\1-STUDYING\project\PrinterDemo\obj\Debug\PrinterDemo.Screens.SalesBill.FRM_ORDERS.resources

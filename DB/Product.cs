@@ -14,6 +14,12 @@ namespace PrinterDemo.DB
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.SalesBillItems = new HashSet<SalesBillItem>();
+        }
+    
         public int id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
@@ -21,5 +27,10 @@ namespace PrinterDemo.DB
         public Nullable<int> Quantity { get; set; }
         public string Notes { get; set; }
         public string Image { get; set; }
+        public Nullable<int> CategoryId { get; set; }
+    
+        public virtual Category Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SalesBillItem> SalesBillItems { get; set; }
     }
 }

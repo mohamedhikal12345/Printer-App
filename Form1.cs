@@ -16,7 +16,7 @@ namespace PrinterDemo
     public partial class Form1 : Form
     {
 
-        PrinterEntities db = new PrinterEntities();
+        PrinterEntities1 db = new PrinterEntities1();
         public Form1()
         {
             InitializeComponent();
@@ -35,11 +35,11 @@ namespace PrinterDemo
         private void button1_Click(object sender, EventArgs e)
         {
             // x=>x to find all users name on db
-           var result = db.Users.Where(x => x.UserName == txtUser.Text && x.Password == txtPassword.Text);
+            var result = db.Users.FirstOrDefault(x => x.UserName == txtUser.Text && x.Password == txtPassword.Text);
 
             //MessageBox.Show(result.Count().ToString());
 
-            if (result.Count() > 0)
+            if (result!= null)
             {
 
                 // to close my form 
@@ -48,6 +48,10 @@ namespace PrinterDemo
                 Thread th = new Thread(openForm);
                 th.SetApartmentState(ApartmentState.STA);
                 th.Start();
+
+                Users.Name = result.UserName;
+                Users.id = result.Id;
+
             }
             else
             {
@@ -56,14 +60,20 @@ namespace PrinterDemo
         }
 
 
-         // showing the main form page 
+        // showing the main form page 
         void openForm()
         {
-           Application.Run(new MainForm());
+            Application.Run(new MainForm());
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
+
+        }
+        static class Users
+        {
+            static public string Name { get; set; }
+            static public int id { get; set; }
 
         }
     }

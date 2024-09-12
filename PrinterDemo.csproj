@@ -110,6 +110,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\CLS_ORDERS.cs" />
+    <Compile Include="DAL\DataAccessLayer.cs" />
+    <Compile Include="DB\Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DB\Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -129,6 +134,21 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\SalesBill.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\SalesBillItem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\User.cs">
@@ -156,6 +176,57 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PrinterDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PrinterDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrinterDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterEntities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\Products\NewProduct.cs">
@@ -170,6 +241,18 @@
     </Compile>
     <Compile Include="Screens\Products\ProductList.Designer.cs">
       <DependentUpon>ProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SalesBill\FRM_ORDERS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SalesBill\FRM_ORDERS.Designer.cs">
+      <DependentUpon>FRM_ORDERS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SalesBill\SalesBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SalesBill\SalesBillForm.Designer.cs">
+      <DependentUpon>SalesBillForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Users\NewUser.cs">
       <SubType>Form</SubType>
@@ -198,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Products\ProductList.resx">
       <DependentUpon>ProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SalesBill\FRM_ORDERS.resx">
+      <DependentUpon>FRM_ORDERS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SalesBill\SalesBillForm.resx">
+      <DependentUpon>SalesBillForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Users\NewUser.resx">
       <DependentUpon>NewUser.cs</DependentUpon>
@@ -232,6 +321,116 @@
     </None>
     <None Include="PrinterDataSet1.xss">
       <DependentUpon>PrinterDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet10.xsc">
+      <DependentUpon>PrinterDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet10.xss">
+      <DependentUpon>PrinterDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet11.xsc">
+      <DependentUpon>PrinterDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet11.xss">
+      <DependentUpon>PrinterDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet2.xsc">
+      <DependentUpon>PrinterDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet2.xss">
+      <DependentUpon>PrinterDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet3.xsc">
+      <DependentUpon>PrinterDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet3.xss">
+      <DependentUpon>PrinterDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet4.xsc">
+      <DependentUpon>PrinterDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet4.xss">
+      <DependentUpon>PrinterDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet5.xsc">
+      <DependentUpon>PrinterDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet5.xss">
+      <DependentUpon>PrinterDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet6.xsc">
+      <DependentUpon>PrinterDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet6.xss">
+      <DependentUpon>PrinterDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet7.xsc">
+      <DependentUpon>PrinterDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet7.xss">
+      <DependentUpon>PrinterDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet8.xsc">
+      <DependentUpon>PrinterDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet8.xss">
+      <DependentUpon>PrinterDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet9.xsc">
+      <DependentUpon>PrinterDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="PrinterDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrinterDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrinterDataSet9.xss">
+      <DependentUpon>PrinterDataSet9.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

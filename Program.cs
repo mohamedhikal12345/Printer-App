@@ -1,5 +1,6 @@
 ﻿using PrinterDemo.DB;
 using PrinterDemo.Screens.Products;
+using PrinterDemo.Screens.SalesBill;
 using PrinterDemo.Screens.Users;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace PrinterDemo
 {
     internal static class Program
     {
-        /// <summary>
+        /// <summary> 
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
@@ -19,7 +20,7 @@ namespace PrinterDemo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new ProductList());
         }
     }
 }
